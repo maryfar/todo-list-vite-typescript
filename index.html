@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <h1 class="text-3xl font-bold underline">
+      Todo List
+    </h1>
+    <form id="task-form" class="flex flex-col gap-2 justify-center items-center w-full m-4">
+      <input type="text" id="task-input" placeholder="Enter a task..." required class="border p-2 w-8/12">
+      <textarea id="task-description" placeholder="Enter description..." required class="border p-2 w-8/12 h-36"></textarea>
+      <button type="submit" class="border p-2 rounded-md bg-slate-400">Add Task</button>
+  </form>
+  <p>fillter:</p>
+  <div id="filter-buttons">
+    <button id="show-all" class="rounded-xl p-2 border-black cursor-pointer border">All</button>
+    <button id="show-completed" class="rounded-xl p-2 border-black cursor-pointer border">Done</button>
+  </div>
+  <ul id="task-list" class="flex flex-col gap-2 justify-center items-start  m-4 "></ul>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
