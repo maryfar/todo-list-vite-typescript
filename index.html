@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="app"></div>
-    <h1 class="text-3xl font-bold underline">
+    <h1 class="text-3xl font-bold mx-auto">
       Todo List
     </h1>
     <form id="task-form" class="flex flex-col gap-2 justify-center items-center w-full m-4">
@@ -16,12 +16,38 @@
       <textarea id="task-description" placeholder="Enter description..." required class="border p-2 w-8/12 h-36"></textarea>
       <button type="submit" class="border p-2 rounded-md bg-slate-400">Add Task</button>
   </form>
-  <p>fillter:</p>
-  <div id="filter-buttons">
+  <p class="px-2">fillter:</p>
+  <div id="filter-buttons"  class="flex gap-2 px-2">
     <button id="show-all" class="rounded-xl p-2 border-black cursor-pointer border">All</button>
     <button id="show-completed" class="rounded-xl p-2 border-black cursor-pointer border">Done</button>
   </div>
   <ul id="task-list" class="flex flex-col gap-2 justify-center items-start  m-4 "></ul>
+<!-- Add this modal code to your HTML -->
+<div id="task-modal" class="fixed inset-0 items-center justify-center z-50 hidden">
+  <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+  <div class="modal-container bg-white w-1/2 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+    <div class="modal-content py-4 text-left px-6">
+      <h2 class="text-2xl font-semibold mb-4">Edit Task</h2>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="modal-title">Title</label>
+        <input type="text" id="modal-title" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Enter title">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="modal-description">Description</label>
+        <textarea id="modal-description" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Enter description"></textarea>
+      </div>
+      <div class="text-right">
+        <button id="modal-save" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800">Save</button>
+        <button id="modal-close" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 ml-2 rounded focus:outline-none focus:shadow-outline-gray active:bg-gray-800">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex gap-3 justify-between p-2">
+<div id="previousbtn" class="curser-pointer hidden">Previous</div>
+<div id="paginationcontiner" class="flex gap-1 mx-2 justify-center items-center"></div>
+<div id="nextbtn" class="curser-pointer hidden">Next</div>
+</div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
