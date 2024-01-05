@@ -60,24 +60,26 @@ function paginationButton(page:number , isActive = false){
     
 
   paginationContainer.addEventListener('click' , (ev : any) => {
+   
     if (Number(ev.target.innerText) === activePage) return;
-
     taskList.innerHTML = ""; 
     getPagination(Number(ev.target.innerText));
   
   });
   
   previousBtn.addEventListener('click' ,() => {
-    taskList.innerHTML = ""; 
+    
     if(pageNumber>1){
+      taskList.innerHTML = ""; 
       pageNumber--;
       getPagination(pageNumber);
     }
   });
   
   nextBtn.addEventListener('click' ,() => {
-    taskList.innerHTML = ""; 
+   
     if(pageNumber<totalPages){
+      taskList.innerHTML = ""; 
       pageNumber ++;
       getPagination(pageNumber);
     }

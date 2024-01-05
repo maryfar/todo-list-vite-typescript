@@ -45,6 +45,8 @@ export function renderTask(task: Task) {
   
   editBtn.addEventListener("click", () => {
     displayEditModal(task.id);
+    console.log(task.id);
+    
     editTask(task.id,task.title,task.description);
     
   });

@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="w-full h-full">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
   </head>
-  <body>
+  <body class="w-full h-full">
     <div id="app"></div>
     <h1 class="text-3xl font-bold mx-auto">
       Todo List
@@ -23,9 +23,9 @@
   </div>
   <ul id="task-list" class="flex flex-col gap-2 justify-center items-start  m-4 "></ul>
 <!-- Add this modal code to your HTML -->
-<div id="task-modal" class="fixed inset-0 items-center justify-center z-50 hidden">
+<div id="task-modal" class="fixed inset-0 items-center justify-center z-40 hidden">
   <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
-  <div class="modal-container bg-white w-1/2 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+  <div class="modal-container bg-white w-1/2 md:max-w-md mx-auto rounded shadow-lg z-40 overflow-y-auto">
     <div class="modal-content py-4 text-left px-6">
       <h2 class="text-2xl font-semibold mb-4">Edit Task</h2>
       <div class="mb-4">
@@ -43,6 +43,7 @@
     </div>
   </div>
 </div>
+
 <div class="flex gap-3 justify-between p-2">
 <div id="previousbtn" class="curser-pointer hidden">Previous</div>
 <div id="paginationcontiner" class="flex gap-1 mx-2 justify-center items-center"></div>

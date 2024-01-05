@@ -1,15 +1,16 @@
 import axios from "axios";
 
-let tasks: Task[] = []; 
-let index: number = 0;
+let updatedTask:Task ; 
+export let index: number;
 export async function editTask(taskId: number, title: string, description: string) {
   try {
     const response = await axios.patch(`http://localhost:3000/tasks/${taskId}`, { title, description });
     const updatedTask = response.data;
+    console.log(updatedTask);
     const index =updatedTask.id;
+    console.log(index);
     updatedTask.title = title;
     updatedTask.description = description;
-    console.log(index);
     
   } catch (error) {
     console.error(error);
@@ -26,13 +27,14 @@ const modalCloseButton = document.getElementById("modal-close") as HTMLButtonEle
 modalSaveButton.addEventListener("click", onSaveClick);
 modalCloseButton.addEventListener("click", onCloseClick);
 
-export function displayEditModal(taskId: number): void {
-  const task = tasks.find((t) => t.id === taskId);
-  if (task) {
-    modalTitleInput.value = task.title;
-    modalDescriptionInput.value = task.description;
+export function displayEditModal(index: number): void {
+
+  if (index) {
     taskModal.classList.remove("hidden");
      taskModal.classList.add("flex");
+    modalTitleInput.value = String(updatedTask.title);
+    modalDescriptionInput.value = String(updatedTask.description);
+    
     
 
   }
