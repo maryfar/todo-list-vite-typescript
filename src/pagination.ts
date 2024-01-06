@@ -48,12 +48,9 @@ function paginationButton(page:number , isActive = false){
   
   export function paginationButtonsRender(totalPages:number , activePage:number){
     let html = '';
-    if(totalPages <= 5){
       for(let page = 1 ; page <= totalPages ; page++){
         html += paginationButton(page, activePage === page);
       }
-    }
-  
     paginationContainer.innerHTML = html;
   };
   

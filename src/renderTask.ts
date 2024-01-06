@@ -1,9 +1,11 @@
 import { updateTaskStatus } from "./updateTaskStatus.js";
 import { deleteTask } from "./deleteTask.js";
-import { editTask } from "./editTask.js";
 import { displayEditModal } from "./editTask.js";
-
+export let tispan:string;
+export let desspan:string;
 const taskList = document.querySelector("#task-list") as HTMLUListElement;
+const modalTitleInput = document.getElementById("modal-title") as HTMLInputElement;
+const modalDescriptionInput = document.getElementById("modal-description") as HTMLTextAreaElement;
 
 export function renderTask(task: Task) {
   const taskItem = document.createElement("li");
@@ -18,9 +20,9 @@ export function renderTask(task: Task) {
   taskItem.innerHTML = `
     <div>
       <input type="checkbox" ${task.completed ? "checked" : ""}>
-      <span>${task.title}</span>
+      <span id="ti-${task.id}">${task.title}</span>
     </div>
-    <span>${task.description}</span>
+    <span id="des-${task.id}">${task.description}</span>
     <span>created at: ${task.date.toLocaleString()}</span>
     <div class="flex gap-2">
     <button class="delete-btn rounded-md bg-red-500 text-white p-2">Delete</button>
@@ -46,11 +48,11 @@ export function renderTask(task: Task) {
   editBtn.addEventListener("click", () => {
     displayEditModal(task.id);
     console.log(task.id);
-    
-    editTask(task.id,task.title,task.description);
-    
+    modalTitleInput.value=task.title;
+    modalDescriptionInput.value=task.description;
   });
 
   taskItem.setAttribute("data-id", task.id.toString());
   taskList.appendChild(taskItem);
+
 }
