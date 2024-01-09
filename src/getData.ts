@@ -35,11 +35,11 @@ export function renderData(resp: Resp) {
     paginationContainer.innerHTML = '';
     for (let i = 1; i <= resp.totalPages; i++) {
         paginationContainer.innerHTML += `
-            <p
+            <span
             aria-current="page"
             class="curser-pointer inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium text-indigo-600 ${i === resp.currentPage ? 'border-indigo-500' : 'border-transparent'}">
             ${i}
-            </p>
+            </span>
         `;
     }
 }

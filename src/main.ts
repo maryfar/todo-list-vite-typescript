@@ -30,8 +30,7 @@ showCompletedButton.addEventListener("click", () => {
 const paginationContainer = <HTMLDivElement>document.getElementById("paginationcontiner");
 paginationContainer.addEventListener('click', (ev) => {
   const newUrl = new URL(window.location.href);
-  /* @ts-ignore */
-  newUrl.searchParams.set('_page', ev.target.innerText);
+  newUrl.searchParams.set('_page', (ev.target as HTMLSpanElement ).innerText);
   window.location.href = newUrl.href;
 });
 
