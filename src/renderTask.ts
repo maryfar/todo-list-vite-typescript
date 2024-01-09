@@ -1,3 +1,4 @@
+import './style.css';
 import { updateTaskStatus } from "./updateTaskStatus.js";
 import { deleteTask } from "./deleteTask.js";
 import { displayEditModal } from "./editTask.js";
@@ -11,22 +12,29 @@ export function renderTask(task: Task) {
   const taskItem = document.createElement("li");
   taskItem.classList.add(
     "rounded-md",
-    "p-2",
-    "bg-red-100",
+    "p-4",
+    "bg-task-item",
     "flex",
     "flex-col",
-    "w-full"
+    "w-full",
+    "border",
+    "shadow-lg",
+    "gap-2",
+    "text-white",
+    "md:w-1/2"
+    
   );
+  
   taskItem.innerHTML = `
     <div>
       <input type="checkbox" ${task.completed ? "checked" : ""}>
-      <span id="ti-${task.id}">${task.title}</span>
+      <span id="ti-${task.id}" class="font-bold">${task.title}</span>
     </div>
     <span id="des-${task.id}">${task.description}</span>
     <span>created at: ${task.date.toLocaleString()}</span>
     <div class="flex gap-2">
-    <button class="delete-btn rounded-md bg-red-500 text-white p-2">Delete</button>
-    <button class="edit-btn rounded-md bg-red-500 text-white p-2">Edit</button>
+    <button class="delete-btn rounded-md  shadow-md  p-2 border ">Delete</button>
+    <button class="edit-btn rounded-md   shadow-md  px-4 py-2 border">Edit</button>
     </div>
   `;
 

@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
   </head>
-  <body class="w-full h-full">
+  <body class="w-full h-full ">
     <div id="app"></div>
-    <h1 class="text-3xl font-bold mx-auto">
-      Todo List
-    </h1>
-    <form id="task-form" class="flex flex-col gap-2 justify-center items-center w-full m-4">
-      <input type="text" id="task-input" placeholder="Enter a task..." required class="border p-2 w-8/12">
-      <textarea id="task-description" placeholder="Enter description..." required class="border p-2 w-8/12 h-36"></textarea>
-      <button type="submit" class="border p-2 rounded-md bg-slate-400">Add Task</button>
+   
+    <form id="task-form" class="flex flex-col gap-2 bg-opacity-5 items-start w-full mb-4 bg-[url(/todo.jpg)] p-5  ">
+      <h1 class="text-3xl font-bold self-start">
+        Todo List
+      </h1>
+      <input type="text" id="task-input" placeholder="Enter a task..." required class="border  p-2 w-3/6 rounded-md">
+      <textarea id="task-description" placeholder="Enter description..." required class="border p-2 w-3/6 rounded-md"></textarea>
+      <button type="submit" class="border p-2 rounded-md shadow-md mx-10 text-white  ">Add Task</button>
   </form>
   <p class="px-2">fillter:</p>
   <div id="filter-buttons"  class="flex gap-2 px-2">
-    <button id="show-all" class="rounded-xl p-2 border-black cursor-pointer border">All</button>
+    <button id="show-all" class="rounded-xl py-2 px-4 border-black cursor-pointer border">All</button>
     <button id="show-completed" class="rounded-xl p-2 border-black cursor-pointer border">Done</button>
   </div>
   <ul id="task-list" class="flex flex-col gap-2 justify-center items-start  m-4 "></ul>
@@ -36,7 +37,7 @@
         <label class="block text-gray-700 text-sm font-bold mb-2" for="modal-description">Description</label>
         <textarea id="modal-description" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Enter description"></textarea>
       </div>
-      <div class="text-right">
+      <div class="text-right flex">
         <button id="modal-save" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800">Save</button>
         <button id="modal-close" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 ml-2 rounded focus:outline-none focus:shadow-outline-gray active:bg-gray-800">Close</button>
       </div>
@@ -44,11 +45,9 @@
   </div>
 </div>
 
-<div class="flex gap-3 justify-between p-2">
-<div id="previousbtn" class="curser-pointer hidden">Previous</div>
-<div id="paginationcontiner" class="flex gap-1 mx-2 justify-center items-center"></div>
-<div id="nextbtn" class="curser-pointer hidden">Next</div>
-</div>
+
+<div id="paginationcontiner" class="flex gap-1 mx-2 justify-center items-center curser-pointer"></div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
